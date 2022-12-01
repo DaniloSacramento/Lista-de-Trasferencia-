@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lista_trasferencia/primeira_tela.dart';
+import 'package:lista_trasferencia/screens/primeira_tela.dart';
 
 void main() {
   runApp(const MyApp());
