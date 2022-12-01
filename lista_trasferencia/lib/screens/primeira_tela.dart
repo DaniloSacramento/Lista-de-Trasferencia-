@@ -2,6 +2,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
+import 'formulario_trasferencia.dart';
 import 'lista_trasferencias.dart';
 
 class PrimeiraTela extends StatelessWidget {
@@ -17,7 +18,7 @@ class PrimeiraTela extends StatelessWidget {
         ),
         backgroundColor: Colors.green,
       ),
-      body: const ListaTrasferencia(),
+      body: FormularioTrasferencia(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(Icons.add),

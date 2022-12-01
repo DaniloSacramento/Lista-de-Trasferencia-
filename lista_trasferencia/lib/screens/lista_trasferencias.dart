@@ -11,11 +11,14 @@ class ListaTrasferencia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-        children:  [
-          ItemTransferencia(Trasferencia(100, 200)),
-          ItemTransferencia(Trasferencia(200, 5000)),
-        ],
-      );
+    return Scaffold(
+      body: Column(
+          children:  [
+            ItemTransferencia(Trasferencia(100, 200)),
+            ItemTransferencia(Trasferencia(200, 5000)),
+          ],
+        ),
+        
+    );
   }
 }
