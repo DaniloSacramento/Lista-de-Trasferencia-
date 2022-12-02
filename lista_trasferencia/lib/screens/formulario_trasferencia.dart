@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:lista_trasferencia/auxiliadores/auxi.dart';
 
 class FormularioTrasferencia extends StatelessWidget {
-  const FormularioTrasferencia({super.key});
+   FormularioTrasferencia({super.key});
 
+  final TextEditingController _controladorCampoNumeroConta = TextEditingController();
+  final TextEditingController _controladorCampoValor = TextEditingController();
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -18,6 +22,7 @@ class FormularioTrasferencia extends StatelessWidget {
           child: Column(
             children: [
               TextFormField(
+                controller: _controladorCampoNumeroConta,
                 style: const TextStyle(fontSize: 16),
                 decoration: const InputDecoration(
                   labelText: "Numero da conta",
@@ -26,6 +31,7 @@ class FormularioTrasferencia extends StatelessWidget {
                 keyboardType: TextInputType.number,
               ),
               TextFormField(
+                controller: _controladorCampoValor,
                  style: const TextStyle(fontSize: 16),
                 decoration: const InputDecoration(
                   icon: Icon(Icons.monetization_on),
@@ -35,12 +41,22 @@ class FormularioTrasferencia extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(top: 20),
-                child: ElevatedButton(onPressed: (){}, child: Text("Confirmar")),
+                child: ElevatedButton(onPressed: (){
+                  _criaTransferencia();  
+                }, child: Text("Confirmar")),
               )
             ],
           ),
         ),
       ),
     );
+  }
+  void _criaTransferencia(){
+    final int? valorConta = int.tryParse(_controladorCampoNumeroConta.text);
+                  final double? valor = double.tryParse(_controladorCampoValor.text);
+                  if(valorConta != null && valor != null){
+                   final trasferenciaCriada = Trasferencia(valor, valorConta);
+                   print("$trasferenciaCriada");
+                  }
   }
 }
