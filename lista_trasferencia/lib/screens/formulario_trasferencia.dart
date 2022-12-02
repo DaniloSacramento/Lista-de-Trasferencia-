@@ -42,7 +42,7 @@ class FormularioTrasferencia extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 20),
                 child: ElevatedButton(onPressed: (){
-                  _criaTransferencia();  
+                  _criaTransferencia(context);  
                 }, child: Text("Confirmar")),
               )
             ],
@@ -51,12 +51,13 @@ class FormularioTrasferencia extends StatelessWidget {
       ),
     );
   }
-  void _criaTransferencia(){
+  void _criaTransferencia(BuildContext context){
     final int? valorConta = int.tryParse(_controladorCampoNumeroConta.text);
                   final double? valor = double.tryParse(_controladorCampoValor.text);
                   if(valorConta != null && valor != null){
                    final trasferenciaCriada = Trasferencia(valor, valorConta);
                    print("$trasferenciaCriada");
-                  }
+                   Navigator.pop(context, trasferenciaCriada);
+      }
   }
 }

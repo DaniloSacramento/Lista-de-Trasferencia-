@@ -2,6 +2,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
+import '../auxiliadores/auxi.dart';
 import 'formulario_trasferencia.dart';
 import 'lista_trasferencias.dart';
 
@@ -18,9 +19,17 @@ class PrimeiraTela extends StatelessWidget {
         ),
         backgroundColor: Colors.green,
       ),
-      body: FormularioTrasferencia(),
+      body: ListaTrasferencia(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+        final Future future =   Navigator.push(context, MaterialPageRoute(builder: (context){
+            return FormularioTrasferencia();
+          }));
+          future.then( (trasferenciaRecebida){
+            print("Chegou no the do future");
+            print("$trasferenciaRecebida");
+          });
+        },
         child: Icon(Icons.add),
         backgroundColor: Colors.green,
       ),
