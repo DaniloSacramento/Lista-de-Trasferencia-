@@ -7,7 +7,8 @@ import 'formulario_trasferencia.dart';
 import 'lista_trasferencias.dart';
 
 class PrimeiraTela extends StatelessWidget {
-  const PrimeiraTela({super.key});
+   PrimeiraTela({super.key});
+   
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +21,7 @@ class PrimeiraTela extends StatelessWidget {
         backgroundColor: Colors.green,
       ),
       body: ListaTrasferencia(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-        final Future <Trasferencia?> future =   Navigator.push(context, MaterialPageRoute(builder: (context){
-            return FormularioTrasferencia();
-          }));
-          future.then( (trasferenciaRecebida){
-            print("Chegou no the do future");
-            print("$trasferenciaRecebida");
-          });
-        },
-        child:  Icon(Icons.add),
-        backgroundColor: Colors.green,
-      ),
+     
     );
   }
 }
