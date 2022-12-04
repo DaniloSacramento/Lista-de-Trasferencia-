@@ -22,7 +22,7 @@ class PrimeiraTela extends StatelessWidget {
       body: ListaTrasferencia(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-        final Future future =   Navigator.push(context, MaterialPageRoute(builder: (context){
+        final Future <Trasferencia?> future =   Navigator.push(context, MaterialPageRoute(builder: (context){
             return FormularioTrasferencia();
           }));
           future.then( (trasferenciaRecebida){
@@ -30,7 +30,7 @@ class PrimeiraTela extends StatelessWidget {
             print("$trasferenciaRecebida");
           });
         },
-        child: Icon(Icons.add),
+        child:  Icon(Icons.add),
         backgroundColor: Colors.green,
       ),
     );

@@ -12,7 +12,7 @@ class ListaTrasferencia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: ListView(
           children:  [
             ItemTransferencia(Trasferencia(100, 200)),
             ItemTransferencia(Trasferencia(200, 5000)),
