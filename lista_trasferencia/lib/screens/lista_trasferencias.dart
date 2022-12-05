@@ -8,6 +8,7 @@ import 'formulario_trasferencia.dart';
 
 
 class ListaTrasferencia extends StatefulWidget {
+  
    ListaTrasferencia({super.key});
   final List<Trasferencia> trasferenciass = [];
   @override
@@ -35,6 +36,10 @@ class _ListaTrasferenciaState extends State<ListaTrasferencia> {
           future.then( (trasferenciaRecebida){
             print("Chegou no the do future");
             print("$trasferenciaRecebida");
+
+            if(trasferenciaRecebida != null){
+              widget.trasferenciass.add(trasferenciaRecebida);
+            }
             widget.trasferenciass.add(trasferenciaRecebida!);
           });
         },
